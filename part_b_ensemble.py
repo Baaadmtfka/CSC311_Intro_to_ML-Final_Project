@@ -71,7 +71,7 @@ def main():
     als_val_pred = sparse_matrix_predictions(val_data, als_mat)
     als_test_pred = sparse_matrix_predictions(test_data, als_mat)
 
-    # the mean of predictions from the 3 models
+    # the mean of predictions from the 2 modified models
     mean_val_pred = np.mean([knn_val_pred, als_val_pred], axis=0)
     mean_test_pred = np.mean([knn_test_pred, als_test_pred], axis=0)
     # accuracy of combined prediction

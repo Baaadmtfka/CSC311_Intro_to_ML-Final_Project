@@ -8,13 +8,13 @@
 \usepackage{subcaption} % for subfigures
 
 \title{CSC311 Project Final Report}
-\author{Group Members: \\ Zixuan Zeng 1008533419 \\ ... \\ ...}
+\author{Group Members: \\ Zixuan Zeng 1008533419 \\ Hao Liu 1003880366 \\ Howard He 1007158246}
 
 \begin{document}
 
 \maketitle
 
-Note: Contributions and LLM are at the end of this report.
+Note: Contributions are at the end of this report.
 
 \newpage
 \vspace*{5cm}
@@ -336,7 +336,7 @@ Through experiments, we compared the validation accuracy and test accuracy of th
         The highest validation accuracy of 0.689 is observed at k=11.
         Beyond k=11, the accuracy starts to decline, indicating potential overfitting or introduction of noise from less similar users.
         \item Item-based KNN:\newline
-        The validation accuracy starts at approximately 0.61 for k=1 and steadily increases as kkk increases.
+        The validation accuracy starts at approximately 0.61 for k=1 and steadily increases as k increases.
         The highest validation accuracy of 0.692 is observed at k=21.
         Beyond k=21, the accuracy remains relatively stable, suggesting that item-based KNN is less sensitive to the number of neighbors compared to user-based KNN.
         \item Hybrid KNN:\newline
@@ -354,7 +354,7 @@ Through experiments, we compared the validation accuracy and test accuracy of th
         The hybrid KNN model achieves a test accuracy of 0.692 at k=11, confirming that the hybrid approach is more effective in predicting missing values compared to using only user-based or item-based KNN.
     \end{itemize}
     \item Experimental Design for Hybrid KNN Performance Validation\newline
-    To validate the hybrid KNN model's performance, we designed experiments with different kkk values and weight combinations ($\alpha$):
+    To validate the hybrid KNN model's performance, we designed experiments with different k values and weight combinations ($\alpha$):
     \begin{itemize}
         \item Varying k Values:\newline
         We experimented with k values ranging from 1 to 26 to determine the optimal number of neighbors.
@@ -370,7 +370,7 @@ Through experiments, we compared the validation accuracy and test accuracy of th
     \item Computational Efficiency
     \begin{itemize}
         \item Computational Complexity:\newline
-        The hybrid KNN model's computational complexity increases with the number of neighbors kkk and the size of the dataset. Performing KNN imputation twice (once for users and once for items) adds to the computational load.
+        The hybrid KNN model's computational complexity increases with the number of neighbors k and the size of the dataset. Performing KNN imputation twice (once for users and once for items) adds to the computational load.
         \item Memory Usage:\newline
         The model requires significant memory to store and process the large sparse matrix, especially when the dataset is large.
     \end{itemize}
@@ -379,7 +379,7 @@ Through experiments, we compared the validation accuracy and test accuracy of th
         \item Incorporating Additional Metadata:\newline
         Introducing additional features such as user demographics (age, gender) and item difficulty levels can provide more context for the imputation, potentially improving accuracy.
         \item Advanced Imputation Techniques:\newline
-        Exploring more advanced imputation techniques, such as matrix factorization or deep learning-based models (e.g., autoencoders), could further enhance the imputation accuracy. Implementing these models may address some of the limitations of KNN by leveraging latent factors or more complex patterns in the data.
+        Exploring more advanced imputation techniques, such as matrix factorization or deep learning-based models (e.g. autoencoders), could further enhance the imputation accuracy. Implementing these models may address some of the limitations of KNN by leveraging latent factors or more complex patterns in the data.
         \item Optimizing Weight Parameter($\alpha$):\newline
         Further tuning of the weight parameter $\alpha$ used to balance user-based and item-based imputations might yield additional improvements in accuracy. Using optimization techniques like grid search or Bayesian optimization can help find the optimal $\alpha$ value efficiently.
         By addressing these limitations and exploring the suggested improvements, the hybrid KNN model can be made more robust and effective for practical applications.
@@ -392,44 +392,30 @@ Through experiments, we compared the validation accuracy and test accuracy of th
 \begin{center}
 \Large\bfseries End of Report
 \end{center}
-Note: The following pages contain Contributions and LLM.
+Note: The following page contains Contributions.
 
 
 \newpage
 \section*{Contributions:}
 \subsection*{Zixuan Zeng 1008533419}
 \begin{itemize}
-    \item Completed full part A, which is the current stable version.
-    (It's worth noting that we decided to try out part A independently to get familiar with the project. We shared opinions on Part A question 3 Matrix Factorization about the derivation of gradients and latent factors update rules)
+    \item Completed full part A, which is the current stable version.\newline
+    (It's worth noting that we decided to try out part A independently to get familiar with the project. We shared opinions on Part A question 3 Matrix Factorization about the derivation of gradients and latent factors update rules.)
     \item Part B Modified Matrix Factorization ALS model.
     \item Part B ensemble.
     (Though the ensembled model has a slight lower test accuracy than the two separate models in part B.)
-    \item Latex final report.
+    \item Latex project final report.
 \end{itemize}
 \subsection*{Hao Liu 1003880366}
 \begin{itemize}
     \item Independently completed Part A to get familiar with the project.
     \item Refined my Part A based on these discussions and finalized and adopted the refined version as our group's stable solution for Part A.
-    \item Fully completed the entire Part B of the project and Zixuan Zeng refined Part B by providing improvements to the ensemble model and the ALS method.
+    \item Fully completed the entire Part B of the project (Hybrid KNN model) and Zixuan Zeng refined Part B by providing improvements to the ensemble model and the ALS method.
     \item Contributed to writing the complete LaTeX final report for Part B.
-
-
 \end{itemize}
-\subsection*{...}
-
-\newpage
-\section*{LLM:}
+\subsection*{Howard He 1007158246}
 \begin{itemize}
-    \item ChatGPT 4o:
-    \begin{itemize}
-        \item python stats resample
-        \item sklearn resample
-        \item scipy sparse matrix
-        \item latex draw figure
-        \item What are some common pitfalls to avoid when implementing the Item Response Theory (IRT) model?
-        \item How should we handle missing data in the dataset when training our models?
-        \item What are the best practices for splitting the data for training, validation, and testing in this context?
-    \end{itemize}
+    \item Independently completed Part A and did a proof read on part A for any inconsistency.
 \end{itemize}
 
 \end{document}

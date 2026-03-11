@@ -88,19 +88,12 @@ def update_lf(train_data, lr, u, z, u_s, z_s):
     error = c - (np.dot(u_s[n].T, z_s[q]) + np.dot(u[n].T, z[q]))
 
     # update subject factors
-    subjects = train_data["subjects"][q]
-    #error = c - np.dot(u_s[n].T, z_s[q])
     u_s_grad = error * -z_s[q]
     z_s_grad = error * -u_s[n]
-    '''for s in subjects:
-        u_s[n, s] -= lr * u_s_grad[s]
-        z_s[q, s] -= lr * z_s_grad[s]
-    '''
     u_s[n] -= lr * u_s_grad
     z_s[q] -= lr * z_s_grad
 
     # update latent factors
-    #error = c - np.dot(u[n].T, z[q])
     u_grad = error * -z[q]
     z_grad = error * -u[n]
     u[n] -= lr * u_grad
@@ -152,7 +145,6 @@ def als(train_data, val_data, k, lr, num_iteration):
             val_loss = squared_error_loss(val_data, u_con, z_con) / len(val_data["question_id"])
             train_losses.append(train_loss)
             val_losses.append(val_loss)
-    #print(u, z, u_s, z_s)
 
     mat = np.dot(u_con, z_con.T)
     return train_losses, val_losses, mat
@@ -187,20 +179,20 @@ def main():
     # Plot training and validation loss
 
     # Base Model ALS
-    '''lr = 0.012
-    num_iteration = 300000
-    k = 2
-    # Train
-    base_train_losses, base_val_losses, base_mat = base_als(train_data, val_data, k, lr, num_iteration)
-    # Evaluate
-    base_train_losses = [loss / len(train_data["question_id"]) for loss in base_train_losses]
-    base_val_losses = [loss / len(val_data["question_id"]) for loss in base_val_losses]
-    base_val_acc = sparse_matrix_evaluate(val_data, base_mat)
-    base_test_acc = sparse_matrix_evaluate(test_data, base_mat)
-    print(f"Base ALS Validation Accuracy: {base_val_acc}")
-    print(f"Base ALS Test Accuracy: {base_test_acc}")
-    plt.plot(base_train_losses, label='Base ALS Training Loss')
-    plt.plot(base_val_losses, label='Base ALS Validation Loss')'''
+    # lr = 0.012
+    # num_iteration = 300000
+    # k = 2
+    # # Train
+    # base_train_losses, base_val_losses, base_mat = base_als(train_data, val_data, k, lr, num_iteration)
+    # # Evaluate
+    # base_train_losses = [loss / len(train_data["question_id"]) for loss in base_train_losses]
+    # base_val_losses = [loss / len(val_data["question_id"]) for loss in base_val_losses]
+    # base_val_acc = sparse_matrix_evaluate(val_data, base_mat)
+    # base_test_acc = sparse_matrix_evaluate(test_data, base_mat)
+    # print(f"Base ALS Validation Accuracy: {base_val_acc}")
+    # print(f"Base ALS Test Accuracy: {base_test_acc}")
+    # plt.plot(base_train_losses, label='Base ALS Training Loss')
+    # plt.plot(base_val_losses, label='Base ALS Validation Loss')
     
     plt.xlabel('Iterations (in thousands)')
     plt.ylabel('avg Loss')

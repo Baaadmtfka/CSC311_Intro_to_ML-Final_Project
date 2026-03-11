@@ -202,9 +202,6 @@ def main():
         losses.append((train_losses, val_losses))
         acc = sparse_matrix_evaluate(val_data, mat)
         accs.append(acc)
-        #train_acc = sparse_matrix_evaluate(train_data, mat)
-        #print(f"k={k}, Training Accuracy={train_acc}")
-        #print(f"k={k}, Validation Accuracy={acc}")
 
     max_acc_idx = np.argmax(accs)
     test_acc = sparse_matrix_evaluate(test_data, mats[max_acc_idx])
