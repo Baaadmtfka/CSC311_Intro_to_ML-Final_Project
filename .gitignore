@@ -1,0 +1,28 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ---- Editors / IDEs ----
+.idea/
+.vscode/
+*.iml
+
+# ---- OS junk ----
+.DS_Store
+Thumbs.db
+
+# ---- Archives (keep source, not zipped copies) ----
+*.zip
+
+# ---- LaTeX build artifacts (keep .tex and the final .pdf) ----
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+pdflatex*.fls
